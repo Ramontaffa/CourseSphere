@@ -14,6 +14,7 @@ export type LoginCredentials = {
 export type AuthContextType = {
   user: User | null;
   isLoading: boolean;
+  isHydrating: boolean;
   login: (credentials: LoginCredentials) => Promise<void>;
   signUp: (credentials: SignUpCredentials) => Promise<void>;
   logout: () => void;

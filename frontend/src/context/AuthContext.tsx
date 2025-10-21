@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, ReactNode, useState } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { api } from "@/lib/api";
@@ -17,7 +23,32 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isHydrating, setIsHydrating] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    async function loadUserFromCookies() {
+      const token = Cookies.get("auth.token");
+
+      if (token) {
+        try {
+          const response = await api.get<User>(`/users/${token}`);
+          if (response.data) {
+            setUser(response.data);
+          }
+        } catch (error) {
+          console.error("AUTH: Falha ao buscar utilizador pelo token!", error);
+          Cookies.remove("auth.token");
+        }
+      } else {
+        console.log("AUTH: Nenhum token encontrado.");
+      }
+      console.log("AUTH: Hidratação terminada.");
+      setIsHydrating(false);
+    }
+
+    loadUserFromCookies();
+  }, []);
 
   const login = async ({ email, password }: LoginCredentials) => {
     setIsLoading(true);
@@ -37,15 +68,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         });
 
         toast.success(`Bem-vindo de volta, ${loggedUser.name}!`);
-        // 1. ESPERE o router terminar
-        await router.push("/");
+        router.push("/");
       } else {
         toast.error("Email ou senha inválidos.");
         throw new Error("Email ou senha inválidos.");
       }
     } catch (error) {
       console.error("Falha no login", error);
-      // 2. RE-LANCE o erro para o componente
       throw error;
     } finally {
       setIsLoading(false);
@@ -94,6 +123,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const value = {
     user,
     isLoading,
+    isHydrating,
     login,
     signUp,
     logout,
