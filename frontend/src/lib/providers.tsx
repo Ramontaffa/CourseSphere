@@ -13,7 +13,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <SWRConfig value={{ fetcher }}>
       <AuthProvider>
-        <Toaster position="top-right" />
+        <Toaster position="bottom-left" />
         
         {children}
       </AuthProvider>
