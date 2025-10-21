@@ -11,14 +11,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { InputField } from "@molecules/InputField/InputField";
 import { PasswordField } from "@molecules/PasswordField/PasswordField";
+import { useAuth } from "@/context/AuthContext";
 
 export function SignUpComponent() {
   const router = useRouter();
+  const { signUp } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
@@ -33,23 +34,14 @@ export function SignUpComponent() {
   async function onSubmit(data: SignUpFormData) {
     setIsLoading(true);
     try {
-      const checkEmail = await api.get(`/users?email=${data.email}`);
-      if (checkEmail.data.length > 0) {
-        toast.error("Este email já está a ser utilizado.");
-        setError("email", {
-          message: "Este email já está a ser utilizado.",
-        });
-        return;
-      }
-
-      const { confirmPassword, ...userData } = data;
-      await api.post("/users", userData);
-
-      toast.success("Conta criada com sucesso! Por favor, faça o login.");
-      router.push("/login");
+      await signUp({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      });
     } catch (error) {
-      console.error("Falha no cadastro:", error);
-      toast.error("Ocorreu um erro ao criar a sua conta.");
+      toast.error("Falha ao criar conta. Tente novamente.");
+      console.error("Sign-up failed", error);
     } finally {
       setIsLoading(false);
     }
