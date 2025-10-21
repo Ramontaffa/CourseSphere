@@ -48,6 +48,9 @@
   --color-main-dark-blue-hover: #243080;
   --color-main-blue: #5165E1;
   --color-main-blue-hover: #3B4FCC;
+
+  /* gray */
+  --color-dark-gray: #1E2024;
 }
 
 :root {
@@ -125,5 +128,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .loginInput {
+    @apply w-full rounded-none border-0 border-b-2 border-[#858B99] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-main-dark-blue transition-colors pr-10 placeholder:text-base shadow-none;
   }
 }
