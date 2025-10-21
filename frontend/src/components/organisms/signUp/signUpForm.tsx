@@ -108,7 +108,7 @@ export function SignUpComponent() {
         Já tem uma conta?
         <Link
           href="/login"
-          className="font-medium text-primary underline-offset-4 hover:underline"
+          className="font-medium text-primary underline-offset-4 hover:underline ml-1"
         >
           Fazer login
         </Link>
