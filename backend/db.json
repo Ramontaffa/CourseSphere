@@ -1,1 +1,16 @@
-{}
+{
+  "users": [
+    {
+      "id": "5885",
+      "name": "ramon taffarel",
+      "email": "taffarelramon1@gmail.com",
+      "password": "123123123"
+    },
+    {
+      "id": "4925",
+      "name": "ras",
+      "email": "ramo@as.com",
+      "password": "asdasd"
+    }
+  ]
+}
