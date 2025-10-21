@@ -41,6 +41,13 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  
+  /* main colors */
+  --color-main-dark-blue: #2E3DA3;
+  --color-main-dark-blue-hover: #243080;
+  --color-main-blue: #5165E1;
+  --color-main-blue-hover: #3B4FCC;
 }
 
 :root {
