@@ -1,11 +1,16 @@
-'use client';
+"use client";
 
-import { createContext, useContext, ReactNode, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
-import { api } from '@/lib/api';
-import { toast } from 'react-hot-toast';
-import type { User, AuthContextType, LoginCredentials } from '@/types';
+import { createContext, useContext, ReactNode, useState } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { api } from "@/lib/api";
+import { toast } from "react-hot-toast";
+import type {
+  User,
+  AuthContextType,
+  LoginCredentials,
+  SignUpCredentials,
+} from "@/types";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -17,7 +22,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async ({ email, password }: LoginCredentials) => {
     setIsLoading(true);
     try {
-      const response = await api.get('/users', {
+      const response = await api.get("/users", {
         params: { email, password },
       });
 
@@ -25,22 +30,55 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (usersFound.length > 0) {
         const loggedUser = usersFound[0];
-        
+
         setUser(loggedUser);
-        
-        Cookies.set('auth.token', String(loggedUser.id), {
+
+        Cookies.set("auth.token", String(loggedUser.id), {
           expires: 7,
-          path: '/',
+          path: "/",
         });
 
         toast.success(`Bem-vindo de volta, ${loggedUser.name}!`);
-        router.push('/');
+        router.push("/");
       } else {
-        toast.error('Email ou senha inválidos.');
-        throw new Error('Email ou senha inválidos.');
+        toast.error("Email ou senha inválidos.");
+        throw new Error("Email ou senha inválidos.");
       }
     } catch (error) {
-      console.error('Falha no login', error);
+      console.error("Falha no login", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const signUp = async ({ name, email, password }: SignUpCredentials) => {
+    setIsLoading(true);
+    try {
+      const existing = await api.get("/users", { params: { email } });
+      if (existing.data && existing.data.length > 0) {
+        toast.error("Já existe uma conta com esse email.");
+        throw new Error("Email já registrado");
+      }
+
+      const response = await api.post("/users", {
+        name,
+        email,
+        password,
+      });
+      router.push("/login");
+
+      const createdUser: User = response.data;
+
+      setUser(createdUser);
+      Cookies.set("auth.token", String(createdUser.id), {
+        expires: 7,
+        path: "/",
+      });
+
+      toast.success(`Conta criada! Bem-vindo, ${createdUser.name}!`);
+      router.push("/");
+    } catch (error) {
+      console.error("Falha no signUp", error);
     } finally {
       setIsLoading(false);
     }
@@ -48,15 +86,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
-    Cookies.remove('auth.token', { path: '/' });
-    toast.success('Até breve!');
-    router.push('/login');
+    Cookies.remove("auth.token", { path: "/" });
+    toast.success("Até breve!");
+    router.push("/login");
   };
 
   const value = {
     user,
     isLoading,
     login,
+    signUp,
     logout,
   };
 
@@ -66,7 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth deve ser usado dentro de um AuthProvider');
+    throw new Error("useAuth deve ser usado dentro de um AuthProvider");
   }
   return context;
 }
