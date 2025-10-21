@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server';
 
 const PUBLIC_ROUTES = [
   '/login',
+  '/sign-up',
 ];
 
 export function middleware(request: NextRequest) {
