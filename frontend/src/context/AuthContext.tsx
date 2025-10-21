@@ -30,22 +30,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (usersFound.length > 0) {
         const loggedUser = usersFound[0];
-
         setUser(loggedUser);
-
         Cookies.set("auth.token", String(loggedUser.id), {
           expires: 7,
           path: "/",
         });
 
         toast.success(`Bem-vindo de volta, ${loggedUser.name}!`);
-        router.push("/");
+        // 1. ESPERE o router terminar
+        await router.push("/");
       } else {
         toast.error("Email ou senha inválidos.");
         throw new Error("Email ou senha inválidos.");
       }
     } catch (error) {
       console.error("Falha no login", error);
+      // 2. RE-LANCE o erro para o componente
+      throw error;
     } finally {
       setIsLoading(false);
     }
@@ -65,10 +66,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         email,
         password,
       });
-      router.push("/login");
 
       const createdUser: User = response.data;
-
       setUser(createdUser);
       Cookies.set("auth.token", String(createdUser.id), {
         expires: 7,
@@ -79,6 +78,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       router.push("/");
     } catch (error) {
       console.error("Falha no signUp", error);
+      throw error;
     } finally {
       setIsLoading(false);
     }

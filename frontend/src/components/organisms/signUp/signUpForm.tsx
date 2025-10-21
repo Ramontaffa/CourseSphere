@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, SignUpFormData } from "@/lib/schema";
 import { Button } from "@/components/atoms/Button/button";
-import { api } from "@/lib/api";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -14,9 +13,7 @@ import { PasswordField } from "@molecules/PasswordField/PasswordField";
 import { useAuth } from "@/context/AuthContext";
 
 export function SignUpComponent() {
-  const router = useRouter();
-  const { signUp } = useAuth();
-  const [isLoading, setIsLoading] = useState(false);
+  const { signUp, isLoading } = useAuth();
   const {
     register,
     handleSubmit,
@@ -32,7 +29,6 @@ export function SignUpComponent() {
   });
 
   async function onSubmit(data: SignUpFormData) {
-    setIsLoading(true);
     try {
       await signUp({
         name: data.name,
@@ -42,8 +38,6 @@ export function SignUpComponent() {
     } catch (error) {
       toast.error("Falha ao criar conta. Tente novamente.");
       console.error("Sign-up failed", error);
-    } finally {
-      setIsLoading(false);
     }
   }
 
