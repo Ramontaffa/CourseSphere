@@ -11,6 +11,7 @@ export default function authLayout({ children }: { children: React.ReactNode }) 
       <aside className="md:w-5/8 bg-gray-100 dark:bg-gray-800">
         <Image
           src={SplashImage}
+          priority
           alt="CourseSphere Splash Image"
           className="object-cover w-full h-full"
         />
