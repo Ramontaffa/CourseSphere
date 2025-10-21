@@ -1,4 +1,4 @@
 import { User } from './user';
-import { AuthContextType, LoginCredentials } from './authTypes';
+import { AuthContextType, LoginCredentials, SignUpCredentials } from './authTypes';
 
-export type { User, AuthContextType, LoginCredentials };
+export type { User, AuthContextType, LoginCredentials, SignUpCredentials };
