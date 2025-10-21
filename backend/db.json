@@ -5,12 +5,26 @@
       "name": "ramon taffarel",
       "email": "taffarelramon1@gmail.com",
       "password": "123123123"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Course 1",
+      "description": "Description 1",
+      "start_date": "2023-01-01",
+      "end_date": "2023-12-31",
+      "creator_id": "5885",
+      "instructors": [1]
     },
     {
-      "id": "4925",
-      "name": "ras",
-      "email": "ramo@as.com",
-      "password": "asdasd"
+      "id": 2,
+      "name": "Course 2",
+      "description": "Description 2",
+      "start_date": "2023-02-01",
+      "end_date": "2023-11-30",
+      "creator_id": "5885",
+      "instructors": [2]
     }
   ]
 }
