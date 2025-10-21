@@ -56,6 +56,7 @@ export function LoginComponent() {
           register={register("password")}
           error={errors.password}
           placeholder="******"
+          className="loginInput"
         />
 
         <Button

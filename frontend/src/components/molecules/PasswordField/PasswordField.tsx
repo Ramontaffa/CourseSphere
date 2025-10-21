@@ -12,6 +12,7 @@ interface PasswordFieldProps {
   register: UseFormRegisterReturn;
   error?: FieldError;
   placeholder?: string;
+  className?: string;
 }
 
 export function PasswordField({
@@ -19,6 +20,7 @@ export function PasswordField({
   register,
   error,
   placeholder = "******",
+  className,
 }: PasswordFieldProps) {
   const [showPassword, setShowPassword] = useState(false);
   const inputId = register.name;
@@ -31,7 +33,7 @@ export function PasswordField({
         <Input
           id={inputId}
           type={showPassword ? "text" : "password"}
-          className="loginInput pr-10 truncate"
+          className={`pr-10 truncate ${className}`}
           placeholder={placeholder}
           {...register}
           aria-invalid={!!error}
