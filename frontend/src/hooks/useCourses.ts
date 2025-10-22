@@ -7,19 +7,12 @@ import { Course } from "@/types";
 
 export function useCourses() {
   const { user, isHydrating } = useAuth();
-
   const shouldFetch = !isHydrating && user;
-
   const {
     data: allCourses,
     error,
     isLoading: isSWRLoading,
   } = useSWR<Course[]>(shouldFetch ? "/courses" : null);
-
-  console.log("All Courses:", allCourses);
-  console.log("User:", user);
-  console.log("isHydrating:", isHydrating);
-  console.log("swr: ", { isSWRLoading, error });
 
   const courses = useMemo(() => {
     if (!allCourses || !user) return [];
@@ -35,7 +28,6 @@ export function useCourses() {
   }, [allCourses, user]);
 
   const isLoading = isHydrating || isSWRLoading;
-
   return {
     courses,
     error,
