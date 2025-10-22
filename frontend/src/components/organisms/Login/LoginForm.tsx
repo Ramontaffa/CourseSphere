@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema, LoginFormData } from "@/lib/schema";
+import { loginSchema, LoginFormData } from "@/lib/schemas/LoginSchema";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@atoms/Button/button";
 import { User } from "lucide-react";

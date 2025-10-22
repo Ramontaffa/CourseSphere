@@ -2,12 +2,10 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signUpSchema, SignUpFormData } from "@/lib/schema";
+import { signUpSchema, SignUpFormData } from "@/lib/schemas/SignUpSchema";
 import { Button } from "@/components/atoms/Button/button";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
 import { InputField } from "@molecules/InputField/InputField";
 import { PasswordField } from "@molecules/PasswordField/PasswordField";
 import { useAuth } from "@/context/AuthContext";
