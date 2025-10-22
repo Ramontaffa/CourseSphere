@@ -4,6 +4,6 @@ export type Course = {
   description: string;
   start_date: string;
   end_date: string;
-  creator_id: number;
-  instructors: number[];
+  creator_id: string;
+  instructors: string[];
 };
