@@ -6,11 +6,11 @@ import Link from "next/link";
 export default function Page() {
   return (
     <main className="flex flex-col justify-start w-full">
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-wrap gap-2 justify-between items-center">
         <h1 className="text-4xl font-bold">Seus Cursos</h1>
         <Link href="/course/create">
           <Button className="bg-main-dark-green text-white hover:bg-main-dark-green-hover focus:bg-main-dark-green-hover">
-            <Plus/>  Criar curso
+            <Plus /> Criar curso
           </Button>
         </Link>
       </div>
