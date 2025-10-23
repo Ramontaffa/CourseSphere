@@ -6,9 +6,10 @@ import { Trash } from "lucide-react";
 interface DeleteDialogProps {
   id: string | number;
   onDelete: (id: string | number) => Promise<void>;
+  header?: boolean;
 }
 
-export function DeleteDialog({ id, onDelete }: DeleteDialogProps) {
+export function DeleteDialog({ id, onDelete, header }: DeleteDialogProps) {
   const [open, setOpen] = useState(false);
 
   const handleDelete = () => {
@@ -16,11 +17,13 @@ export function DeleteDialog({ id, onDelete }: DeleteDialogProps) {
     setOpen(false);
   };
 
+  const headerStyles = header ? "text-white bg-red-500 hover:bg-red-600" : "text-red-500 hover:bg-zinc-100 hover:text-red-700";
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="text-red-500 hover:bg-zinc-100 hover:text-red-700 transition border-none shadow-none" variant="outline">
-          <Trash size={16} />
+        <Button className={`transition border-none shadow-none ${headerStyles}`} variant="outline">
+          <Trash size={16} /> {header ? "Excluir" : ""}
         </Button>
       </DialogTrigger>
       <DialogContent>
