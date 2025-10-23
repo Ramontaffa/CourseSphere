@@ -6,6 +6,7 @@ import { loginSchema, LoginFormData } from "@/lib/schemas/LoginSchema";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@atoms/Button/button";
 import { User } from "lucide-react";
+import Link from "next/link";
 import { InputField } from "@molecules/InputField/InputField";
 import { PasswordField } from "@molecules/PasswordField/PasswordField";
 
@@ -59,14 +60,22 @@ export function LoginComponent() {
           className="loginInput"
         />
 
-        <Button
-          type="submit"
-          className="w-full mt-4 bg-main-dark-blue hover:bg-main-dark-blue-hover"
-          disabled={isLoading}
-          aria-busy={isLoading}
-        >
-          {isLoading ? "Entrando..." : "Entrar"}
-        </Button>
+        <div className="mt-4 flex flex-col gap-2">
+          <Button
+            type="submit"
+            className="flex-1 bg-main-dark-blue hover:bg-main-dark-blue-hover"
+            disabled={isLoading}
+            aria-busy={isLoading}
+          >
+            {isLoading ? "Entrando..." : "Entrar"}
+          </Button>
+
+          <Button asChild variant="outline" className="flex-1 border-main-dark-blue text-main-dark-blue">
+            <Link href="/sign-up" className="text-sm">
+              Registrar
+            </Link>
+          </Button>
+        </div>
       </form>
     </div>
   );

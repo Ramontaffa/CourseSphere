@@ -34,7 +34,6 @@ export function SignUpComponent() {
         password: data.password,
       });
     } catch (error) {
-      toast.error("Falha ao criar conta. Tente novamente.");
       console.error("Sign-up failed", error);
     }
   }
