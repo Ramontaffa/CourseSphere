@@ -8,7 +8,9 @@ import { PageHeader } from "@molecules/CourseDatails/PageHeader";
 import { SectionHeader } from "@molecules/CourseDatails/SectionHeader";
 import { useMemo } from "react";
 import { LessonList } from "../LessonsList/LessonList";
+import { InstructorsSection } from "@molecules/InstructorsSection/InstructorsSection";
 import { AddLessonDialog } from "@/components/molecules/AddLessonDialog/AddLessonDialog";
+import { User } from "@/types";
 
 export function CourseDetails({ courseId }: { courseId: string }) {
   const { user, isHydrating } = useAuth();
@@ -60,25 +62,14 @@ export function CourseDetails({ courseId }: { courseId: string }) {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto">
       {/* course details header */}
       <PageHeader course={course} isCreator={isCreator} />
 
       {/* instructors section */}
-      <section className="mb-8">
-        <SectionHeader title="Instrutores" showButton={isCreator}>
-          <Button
-            variant="outline"
-            className="mb-4 text-white bg-main-dark-green hover:bg-main-dark-green-hover hover:text-off-white"
-          >
-            Adicionar Novo Instrutor
-          </Button>
-        </SectionHeader>
-
-        <div className="rounded-lg border bg-card p-4">
-          <p>A lista de instrutores aparecerá aqui.</p>
-        </div>
-      </section>
+      {isCreator && (
+        <InstructorsSection courseId={course.id} instructors={course.instructors || []} isCreator={isCreator} />
+      )}
 
       {/* lessons section */}
       <section>
