@@ -1,9 +1,7 @@
 "use client";
 
 import { EditCourseDialog } from "@molecules/EditCourseDialog/EditCourseDialog";
-import { api } from "@/lib/api";
-import { mutate } from "swr";
-import { toast } from "react-hot-toast";
+import { useCourseMutations } from '@/hooks/Mutations/useCourseMutations';
 import { Course } from "@/types";
 import PageTitle from "../PageTitle/PageTitle";
 import { DeleteDialog } from "@molecules/DeleteDialog/DeleteDialog";
@@ -21,31 +19,7 @@ function formatDate(dateInput: string | Date) {
 }
 
 export function PageHeader({ course, isCreator }: PageHeaderProps) {
-  async function handleEditCourse(id: string, data: Partial<Course>) {
-    try {
-      await api.patch(`/courses/${id}`, data);
-      mutate(`/courses`);
-      mutate(`/courses/${id}`);
-      toast.success("Curso atualizado com sucesso!");
-    } catch (error) {
-      console.error("Erro ao atualizar curso:", error);
-      toast.error("Erro ao atualizar curso. Tente novamente.");
-      throw error;
-    }
-  }
-
-  async function handleDeleteCourse(id: string | number) {
-    try {
-      await api.delete(`/courses/${id}`);
-      mutate(`/courses`);
-      mutate(`/courses/${id}`);
-      toast.success("Curso excluído com sucesso");
-    } catch (error) {
-      console.error("Erro ao excluir curso:", error);
-      toast.error("Erro ao excluir curso. Tente novamente.");
-      throw error;
-    }
-  }
+  const { updateCourse, deleteCourse, isUpdating, isDeleting } = useCourseMutations();
 
   return (
     <section className="mb-8">
@@ -53,8 +27,8 @@ export function PageHeader({ course, isCreator }: PageHeaderProps) {
         <PageTitle title={course.name} />
         {isCreator && (
           <div className="flex flex-row gap-4">
-            <EditCourseDialog course={course} onEdit={handleEditCourse} />
-            <DeleteDialog id={course.id} onDelete={handleDeleteCourse} header={true} />
+            <EditCourseDialog course={course} onEdit={updateCourse} />
+            <DeleteDialog id={course.id} onDelete={() => deleteCourse(course.id)} header={true} />
           </div>
         )}
       </div>
