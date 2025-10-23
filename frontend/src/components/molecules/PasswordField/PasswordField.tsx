@@ -44,7 +44,7 @@ export function PasswordField({
           onClick={() => setShowPassword((prev) => !prev)}
           aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
           aria-pressed={showPassword}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground cursor-pointer"
         >
           {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
         </button>
