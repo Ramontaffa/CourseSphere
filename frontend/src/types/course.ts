@@ -1,9 +1,9 @@
 export type Course = {
-  id: number;
+  id: string;
   name: string;
   description: string;
-  start_date: string;
-  end_date: string;
+  start_date: Date;
+  end_date: Date;
   creator_id: string;
   instructors: string[];
 };
