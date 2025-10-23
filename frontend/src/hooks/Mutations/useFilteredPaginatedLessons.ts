@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import useSWR from "swr";
 import { Lesson } from "@/types";
 import { api } from "@/lib/api";
-import { useClientPagination } from "@/hooks/useClientPagination";
+import { useClientPagination } from "@/hooks/Mutations/useClientPagination";
 import toast from "react-hot-toast";
 
 export interface UseFilteredPaginatedLessonsOptions {

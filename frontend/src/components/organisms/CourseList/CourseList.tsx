@@ -1,10 +1,10 @@
 "use client";
 
-import { useCourses } from "@/hooks/useCourses";
+import { useCourses } from "@/hooks/Querys/useCourses";
 import { CourseCard } from "@/components/molecules/CourseCard/CourseCard";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
 import Pagination from "@/components/molecules/Pagination/Pagination";
-import { useClientPagination } from "@/hooks/useClientPagination";
+import { useClientPagination } from "@/hooks/Mutations/useClientPagination";
 
 export function CourseList() {
   const { courses, isLoading, error } = useCourses();

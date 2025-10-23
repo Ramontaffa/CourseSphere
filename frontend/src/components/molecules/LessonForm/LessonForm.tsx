@@ -7,7 +7,7 @@ import {
   LessonFormData,
   LessonFormInput,
 } from "@/lib/schemas/LessonSchema";
-import { useCreateLesson } from "@/hooks/useCreateLesson";
+import { useCreateLesson } from "@/hooks/Mutations/useCreateLesson";
 import { toast } from "react-hot-toast";
 import { InputField } from "@molecules/InputField/InputField";
 import { SelectInput } from "@molecules/SelectInput/SelectInput";

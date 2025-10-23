@@ -3,8 +3,8 @@
 import { SectionHeader } from "@molecules/CourseDatails/SectionHeader";
 import { DeleteDialog } from "@molecules/DeleteDialog/DeleteDialog";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
-import { useInstructors } from "@/hooks/useInstructors";
-import { useCourseInstructors } from "@/hooks/useCourseInstructors";
+import { useInstructors } from "@/hooks/Querys/useInstructors";
+import { useCourseInstructors } from "@/hooks/Mutations/useCourseInstructors";
 import { AddSuggestedInstructorDialog } from "@molecules/SuggestedInstructor/SuggestedInstructor";
 import { User } from "@/types";
 

@@ -5,8 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from '@atoms/Button/button';
 import { Skeleton } from '@atoms/Skeleton/skeleton';
 import { LucidePlusCircle } from 'lucide-react';
-import { useSuggestedInstructors } from '@/hooks/useSuggestedInstructors';
-import { useCreateInstructor } from '@/hooks/useCreateInstructor';
+import { useSuggestedInstructors } from '@/hooks/Querys/useSuggestedInstructors';
+import { useCreateInstructor } from '@/hooks/Mutations/useCreateInstructor';
 
 interface AddSuggestedInstructorDialogProps {
   addInstructorCallback: (userId: string) => Promise<void>;

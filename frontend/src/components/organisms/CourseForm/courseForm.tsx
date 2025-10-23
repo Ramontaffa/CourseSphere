@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { courseSchema, CourseFormData } from '@/lib/schemas/CourseSchema';
-import { useCreateCourse } from '@/hooks/useCreateCourse'; 
+import { useCreateCourse } from '@/hooks/Mutations/useCreateCourse'; 
 import { InputField } from '@molecules/InputField/InputField';
 import { Button } from '@atoms/Button/button';
 import { TextAreaField } from '@molecules/TextAreaField/textAreaField';

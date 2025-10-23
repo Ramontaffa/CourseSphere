@@ -1,16 +1,14 @@
 "use client";
 
-import { useCourse } from "@/hooks/useGetCourseId";
+import { useCourse } from "@/hooks/Querys/useGetCourseId";
 import { useAuth } from "@/context/AuthContext";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
-import { Button } from "@atoms/Button/button";
 import { PageHeader } from "@molecules/CourseDatails/PageHeader";
 import { SectionHeader } from "@molecules/CourseDatails/SectionHeader";
 import { useMemo } from "react";
-import { LessonList } from "../LessonsList/LessonList";
+import { LessonList } from "@organisms/LessonsList/LessonList";
 import { InstructorsSection } from "@molecules/InstructorsSection/InstructorsSection";
-import { AddLessonDialog } from "@/components/molecules/AddLessonDialog/AddLessonDialog";
-import { User } from "@/types";
+import { AddLessonDialog } from "@molecules/AddLessonDialog/AddLessonDialog";
 
 export function CourseDetails({ courseId }: { courseId: string }) {
   const { user, isHydrating } = useAuth();

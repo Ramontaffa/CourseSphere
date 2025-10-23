@@ -7,7 +7,7 @@ import { LessonCard } from "@molecules/LessonCard/LessonCard";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
 import Pagination from "@/components/molecules/Pagination/Pagination";
 import { useAuth } from "@/context/AuthContext";
-import { useFilteredPaginatedLessons } from "@/hooks/useFilteredPaginatedLessons";
+import { useFilteredPaginatedLessons } from "@/hooks/Mutations/useFilteredPaginatedLessons";
 
 export function LessonList({ courseId }: { courseId: string }) {
   const { user } = useAuth();

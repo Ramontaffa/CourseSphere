@@ -12,6 +12,7 @@ export function useCreateLesson(courseId: string) {
   const { user } = useAuth();
   const { mutate } = useSWRConfig();
 
+  // Create a new lesson
   const createLesson = async (data: LessonFormData) => {
     if (!user) {
       toast.error('Você não está autenticado.');
@@ -26,8 +27,8 @@ export function useCreateLesson(courseId: string) {
         creator_id: user.id,
       };
 
+      // Create lesson and update cache
       await api.post('/lessons', payload);
-
       await mutate(
         (key) => typeof key === 'string' && key.startsWith(`/lessons?course_id=${courseId}`),
         undefined,
@@ -37,7 +38,6 @@ export function useCreateLesson(courseId: string) {
       toast.success('Aula criada com sucesso!');
     
     } catch (error) {
-      console.error('Falha ao criar aula:', error);
       toast.error('Não foi possível criar a aula.');
       throw error; 
     } finally {
