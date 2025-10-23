@@ -16,7 +16,7 @@ export function useCreateCourse() {
   const createCourse = async (data: CourseFormData) => {
     if (!user) {
       toast.error('Você precisa de estar logado para criar um curso.');
-      throw new Error('User not authenticated'); // Lança um erro
+      throw new Error('User not authenticated');
     }
 
     setIsLoading(true);
