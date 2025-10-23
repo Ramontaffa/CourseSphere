@@ -12,6 +12,7 @@ interface InputFieldProps {
   placeholder?: string;
   icon?: ReactNode;
   className?: string;
+  min?: string;
 }
 
 export function InputField({
@@ -22,6 +23,7 @@ export function InputField({
   placeholder,
   icon,
   className,
+  min,
 }: InputFieldProps) {
   const inputId = register.name;
 
@@ -44,6 +46,7 @@ export function InputField({
           className={`${icon ? "pr-10" : ""} ${className}`}
           {...register}
           aria-invalid={!!error}
+          min={min}
         />
       </div>
       <ErrorMessage>{error?.message}</ErrorMessage>
