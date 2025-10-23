@@ -50,7 +50,7 @@ export function LessonCard({
   }[lesson.status];
 
   return (
-    <div className="flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl p-4 hover:shadow-md hover:scale-101 transition-all duration-200">
+    <div className="flex gap-4 overflow-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl p-4 hover:shadow-md hover:scale-101 transition-all duration-200">
       {/* Miniatura */}
       <div className="relative w-48 min-h-28 h-full">
         {thumbnail ? (
