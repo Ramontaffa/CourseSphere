@@ -10,7 +10,7 @@ export default function AppLayout({
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto p-4">
+        <div className="mx-auto px-6 sm:px-8 lg:px-10 py-8">
           {children}
         </div>
       </main>
