@@ -1,16 +1,21 @@
-import { CourseCard } from "@/components/molecules/CourseCard/CourseCard";
-import { CourseList } from "@organisms/CourseList/CourseList";
+import { Button } from "@atoms/Button/button";
+import { CourseList } from "@organisms/MyCourseList/MyCourseList";
+import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="flex flex-col items-center p-24">
-      <h1 className="text-4xl font-bold">Bem-vindo ao CourseSphere!</h1>
-      <p className="mt-4 text-lg text-gray-600">
-        Sua plataforma de gestão de cursos online colaborativa.
-      </p>
-      <div className="mt-8 grid grid-cols-1 gap-4">
+    <main className="flex flex-col justify-start w-full">
+      <div className="flex flex-row justify-between items-center">
+        <h1 className="text-4xl font-bold">Seus Cursos</h1>
+        <Link href="/create/course">
+          <Button className="bg-main-dark-green text-white hover:bg-main-dark-green-hover focus:bg-main-dark-green-hover">
+            Criar curso
+          </Button>
+        </Link>
+      </div>
+      <div className="mt-8 w-full">
         <CourseList />
-      </div>  
+      </div>
     </main>
   );
 }
