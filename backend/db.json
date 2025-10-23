@@ -5,26 +5,177 @@
       "name": "ramon taffarel",
       "email": "taffarelramon1@gmail.com",
       "password": "123123123"
+    },
+    {
+      "id": "1",
+      "name": "Teste Usuario 2",
+      "email": "taffarelramon2@gmail.com",
+      "password": "123123123"
     }
   ],
   "courses": [
     {
-      "id": 1,
-      "name": "Course 1",
-      "description": "Description 1",
-      "start_date": "2023-01-01",
-      "end_date": "2023-12-31",
+      "id": "course-1",
+      "name": "Course A1",
+      "description": "Introdução ao Course A1",
+      "start_date": "2025-01-01T00:00:00.000Z",
+      "end_date": "2025-03-31T00:00:00.000Z",
       "creator_id": "5885",
-      "instructors": [1]
+      "instructors": [
+        "1"
+      ]
     },
     {
-      "id": 2,
-      "name": "Course 2",
-      "description": "Description 2",
-      "start_date": "2023-02-01",
-      "end_date": "2023-11-30",
+      "id": "course-2",
+      "name": "Course A2",
+      "description": "Avançando no Course A2",
+      "start_date": "2025-04-01T00:00:00.000Z",
+      "end_date": "2025-06-30T00:00:00.000Z",
       "creator_id": "5885",
-      "instructors": [2]
+      "instructors": [
+        "1"
+      ]
+    },
+    {
+      "id": "course-3",
+      "name": "Course B1",
+      "description": "Introdução ao Course B1",
+      "start_date": "2025-07-01T00:00:00.000Z",
+      "end_date": "2025-09-30T00:00:00.000Z",
+      "creator_id": "1",
+      "instructors": [
+        "5885"
+      ]
+    },
+    {
+      "id": "course-4",
+      "name": "Course B2",
+      "description": "Avançando no Course B2",
+      "start_date": "2025-10-01T00:00:00.000Z",
+      "end_date": "2025-12-31T00:00:00.000Z",
+      "creator_id": "1",
+      "instructors": [
+        "5885"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "course-1-l1",
+      "title": "Aula 1 - Conceitos iniciais",
+      "status": "published",
+      "video_url": "https://example.com/course-1-lesson-1.mp4",
+      "publish_date": "2025-01-10T00:00:00.000Z",
+      "course_id": "course-1",
+      "creator_id": "5885"
+    },
+    {
+      "id": "course-1-l2",
+      "title": "Aula 2 - Prática 1",
+      "status": "published",
+      "video_url": "https://example.com/course-1-lesson-2.mp4",
+      "publish_date": "2025-01-17T00:00:00.000Z",
+      "course_id": "course-1",
+      "creator_id": "5885"
+    },
+    {
+      "id": "course-1-l3",
+      "title": "Aula 3 - Revisão",
+      "status": "published",
+      "video_url": "https://example.com/course-1-lesson-3.mp4",
+      "publish_date": "2025-01-24T00:00:00.000Z",
+      "course_id": "course-1",
+      "creator_id": "5885"
+    },
+    {
+      "id": "course-2-l1",
+      "title": "Aula 1 - Introdução ao A2",
+      "status": "published",
+      "video_url": "https://example.com/course-2-lesson-1.mp4",
+      "publish_date": "2025-04-10T00:00:00.000Z",
+      "course_id": "course-2",
+      "creator_id": "5885"
+    },
+    {
+      "id": "course-2-l2",
+      "title": "Aula 2 - Técnicas intermediárias",
+      "status": "published",
+      "video_url": "https://example.com/course-2-lesson-2.mp4",
+      "publish_date": "2025-04-17T00:00:00.000Z",
+      "course_id": "course-2",
+      "creator_id": "5885"
+    },
+    {
+      "id": "course-2-l3",
+      "title": "Aula 3 - Projeto final",
+      "status": "published",
+      "video_url": "https://example.com/course-2-lesson-3.mp4",
+      "publish_date": "2025-04-24T00:00:00.000Z",
+      "course_id": "course-2",
+      "creator_id": "5885"
+    },
+    {
+      "id": "course-3-l1",
+      "title": "Aula 1 - Fundamentos B1",
+      "status": "published",
+      "video_url": "https://example.com/course-3-lesson-1.mp4",
+      "publish_date": "2025-07-10T00:00:00.000Z",
+      "course_id": "course-3",
+      "creator_id": "1"
+    },
+    {
+      "id": "course-3-l2",
+      "title": "Aula 2 - Casos de uso",
+      "status": "published",
+      "video_url": "https://example.com/course-3-lesson-2.mp4",
+      "publish_date": "2025-07-17T00:00:00.000Z",
+      "course_id": "course-3",
+      "creator_id": "1"
+    },
+    {
+      "id": "course-3-l3",
+      "title": "Aula 3 - Exercícios",
+      "status": "published",
+      "video_url": "https://example.com/course-3-lesson-3.mp4",
+      "publish_date": "2025-07-24T00:00:00.000Z",
+      "course_id": "course-3",
+      "creator_id": "1"
+    },
+    {
+      "id": "course-4-l1",
+      "title": "Aula 1 - Introdução B2",
+      "status": "published",
+      "video_url": "https://example.com/course-4-lesson-1.mp4",
+      "publish_date": "2025-10-10T00:00:00.000Z",
+      "course_id": "course-4",
+      "creator_id": "1"
+    },
+    {
+      "id": "course-4-l2",
+      "title": "Aula 2 - Técnicas avançadas",
+      "status": "published",
+      "video_url": "https://example.com/course-4-lesson-2.mp4",
+      "publish_date": "2025-10-17T00:00:00.000Z",
+      "course_id": "course-4",
+      "creator_id": "1"
+    },
+    {
+      "id": "course-4-l3",
+      "title": "Aula 3 - Projeto final B2",
+      "status": "published",
+      "video_url": "https://example.com/course-4-lesson-3.mp4",
+      "publish_date": "2025-10-24T00:00:00.000Z",
+      "course_id": "course-4",
+      "creator_id": "1"
+    },
+    {
+      "id": "acd5",
+      "title": "Aula - 4 - RevenueCat",
+      "status": "archived",
+      "video_url": "https://www.youtube.com/watch?v=R3fLKC-2Qh0&t=493s",
+      "publish_date": "2025-10-24T03:00:00.000Z",
+      "course_id": "course-4",
+      "creator_id": "5885"
     }
   ]
 }
