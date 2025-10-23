@@ -39,16 +39,15 @@ export function EditLessonDialog({ lesson, onEdit }: EditLessonDialogProps) {
       title: lesson.title || "",
       status: lesson.status || "draft",
       video_url: lesson.video_url || "",
-      publish_date:
-        typeof lesson.publish_date === "string"
-          ? lesson.publish_date
-          : lesson.publish_date
-          ? new Date(lesson.publish_date).toISOString().split("T")[0]
-          : "",
+      // Normalize publish_date to YYYY-MM-DD so input[type=date] displays correctly
+      publish_date: lesson.publish_date
+        ? new Date(lesson.publish_date).toISOString().split("T")[0]
+        : "",
     },
   });
 
-  const { handleSubmit, control } = methods;
+  const { handleSubmit, control, watch } = methods;
+  const watchedStatus = watch("status");
 
   async function onSubmit(data: LessonFormData) {
     const patch: Partial<Lesson> = {
@@ -114,6 +113,15 @@ export function EditLessonDialog({ lesson, onEdit }: EditLessonDialogProps) {
                 </FormItem>
               )}
             />
+
+            {watchedStatus === "published" && (
+              <InputField
+                label="Data de Publicação"
+                type="date"
+                register={methods.register("publish_date")}
+                error={methods.formState.errors.publish_date}
+              />
+            )}
 
             <div className="flex justify-end gap-2 mt-4">
               <DialogClose asChild>

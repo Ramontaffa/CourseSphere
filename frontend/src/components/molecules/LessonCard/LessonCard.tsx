@@ -27,7 +27,6 @@ function getVideoThumbnail(url: string): string {
       return `https://vumbnail.com/${vimeoMatch[1]}.jpg`;
     }
 
-    // if no external thumbnail found, return empty string and use local DummyImage in JSX
     return "";
   } catch {
     return "";
@@ -104,13 +103,15 @@ export function LessonCard({
             </span>
           </div>
         </div>
-
-        <p className="text-xs text-zinc-500 mt-2 truncate">
-          Publicado em: {" "}
-          {format(new Date(lesson.publish_date), "dd 'de' MMMM 'de' yyyy", {
-            locale: ptBR,
-          })}
-        </p>
+        
+        {lesson.status === "published" && (
+          <p className="text-xs text-zinc-500 mt-2 truncate">
+            Publicado em: {" "}
+            {format(new Date(lesson.publish_date), "dd 'de' MMMM 'de' yyyy", {
+              locale: ptBR,
+            })}
+          </p>
+        )}
       </div>
     </div>
   );
