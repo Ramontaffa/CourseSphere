@@ -1,6 +1,10 @@
 "use client";
 
 import { Button } from "@atoms/Button/button";
+import { EditCourseDialog } from "@molecules/EditCourseDialog/EditCourseDialog";
+import { api } from "@/lib/api";
+import { mutate } from "swr";
+import { toast } from "react-hot-toast";
 import { Course } from "@/types";
 import PageTitle from "../PageTitle/PageTitle";
 
@@ -17,13 +21,27 @@ function formatDate(dateInput: string | Date) {
 }
 
 export function PageHeader({ course, isCreator }: PageHeaderProps) {
+
+  async function handleEditCourse(id: string, data: Partial<Course>) {
+    try {
+      await api.patch(`/courses/${id}`, data);
+      mutate(`/courses`);
+      mutate(`/courses/${id}`);
+      toast.success("Curso atualizado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao atualizar curso:", error);
+      toast.error("Erro ao atualizar curso. Tente novamente.");
+      throw error;
+    }
+  }
+
   return (
     <section className="mb-8">
       <div className="flex flex-wrap justify-between items-center mb-4">
         <PageTitle title={course.name} />
         {isCreator && (
           <div className="flex flex-row gap-4">
-            <Button className="bg-main-yellow hover:bg-main-yellow-hover hover:text-off-white text-off-white">Editar Curso</Button>
+            <EditCourseDialog course={course} onEdit={handleEditCourse} />
             <Button variant="destructive">Excluir Curso</Button>
           </div>
         )}
