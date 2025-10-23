@@ -15,10 +15,8 @@ export function useCourseMutations() {
     setIsUpdating(true);
     try {
       await api.patch(`/courses/${id}`, data);
-      // revalidate list and single course
       await mutate('/courses');
       await mutate(`/courses/${id}`);
-      router.replace(`/`);
       toast.success('Curso atualizado com sucesso!');
     } catch (err) {
       toast.error('Erro ao atualizar curso. Tente novamente.');
@@ -33,7 +31,6 @@ export function useCourseMutations() {
     try {
       await api.delete(`/courses/${id}`);
       await mutate('/courses');
-      await mutate(`/courses/${id}`);
       toast.success('Curso excluído com sucesso');
     } catch (err) {
       toast.error('Erro ao excluir curso. Tente novamente.');

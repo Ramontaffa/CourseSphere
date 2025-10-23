@@ -2,6 +2,7 @@
 
 import { EditCourseDialog } from "@molecules/EditCourseDialog/EditCourseDialog";
 import { useCourseMutations } from '@/hooks/Mutations/useCourseMutations';
+import { useRouter } from 'next/navigation';
 import { Course } from "@/types";
 import PageTitle from "../PageTitle/PageTitle";
 import { DeleteDialog } from "@molecules/DeleteDialog/DeleteDialog";
@@ -20,6 +21,7 @@ function formatDate(dateInput: string | Date) {
 
 export function PageHeader({ course, isCreator }: PageHeaderProps) {
   const { updateCourse, deleteCourse } = useCourseMutations();
+    const router = useRouter();
 
   return (
     <section className="mb-8">
@@ -28,7 +30,15 @@ export function PageHeader({ course, isCreator }: PageHeaderProps) {
         {isCreator && (
           <div className="flex flex-row gap-4">
             <EditCourseDialog course={course} onEdit={updateCourse} />
-            <DeleteDialog id={course.id} onDelete={() => deleteCourse(course.id)} header={true} />
+              <DeleteDialog
+                id={course.id}
+                onDelete={async (id) => {
+                  await deleteCourse(id);
+                  // navigate after deletion to avoid flicker — replace to keep nav history clean
+                  router.replace('/');
+                }}
+                header={true}
+              />
           </div>
         )}
       </div>
