@@ -19,7 +19,7 @@ function formatDate(dateInput: string | Date) {
 }
 
 export function PageHeader({ course, isCreator }: PageHeaderProps) {
-  const { updateCourse, deleteCourse, isUpdating, isDeleting } = useCourseMutations();
+  const { updateCourse, deleteCourse } = useCourseMutations();
 
   return (
     <section className="mb-8">
