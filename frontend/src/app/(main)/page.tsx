@@ -1,5 +1,5 @@
 import { Button } from "@atoms/Button/button";
-import { CourseList } from "@organisms/MyCourseList/MyCourseList";
+import { CourseList } from "@organisms/CourseList/CourseList";
 import Link from "next/link";
 
 export default function Page() {
