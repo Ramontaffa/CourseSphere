@@ -22,10 +22,9 @@ export function CourseCard({ course }: CourseCardProps) {
     return date.toLocaleDateString("pt-BR");
   }
 
-  console.log("ID DO CURSO NO CARD:", course.id)
   return (
     <Link
-      className="group block w-full max-w-[45%] h-full mx-auto transition-transform transform hover:scale-103 focus:scale-103"
+      className="group block w-full h-full transition-transform transform hover:scale-103 focus:scale-103"
       href={`/course/${course.id}`}
     >
       <Card className="flex h-full flex-col cursor-pointer overflow-hidden transition-shadow duration-300 border-border/50 hover:shadow-md">

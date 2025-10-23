@@ -19,7 +19,7 @@ export function Navbar() {
 
 
   return (
-    <nav className="flex w-full items-center justify-between border-b p-4 shadow-sm bg-main-dark-blue dark:bg-gray-800">
+    <nav className="flex w-full items-center justify-between border-b p-4 shadow-sm bg-main-dark-blue">
       <h1 className="text-xl font-bold text-white">CourseSphere</h1>
 
       <AuthProfile userName={String(user?.name ?? '')} onLogout={Logout} />
