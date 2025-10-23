@@ -13,6 +13,12 @@ interface AddSuggestedInstructorDialogProps {
   isUpdatingCourse: boolean; 
 }
 
+interface RandomUser {
+  login: { uuid: string; password?: string };
+  name: { title: string; first: string; last: string };
+  email: string;
+}
+
 export function AddSuggestedInstructorDialog({ 
   addInstructorCallback, 
   isUpdatingCourse 
@@ -22,7 +28,7 @@ export function AddSuggestedInstructorDialog({
   const { suggestions, isLoading: isLoadingSuggestions } = useSuggestedInstructors(isOpen);
   const { createAndAddUser, isCreating: isCreatingUser } = useCreateInstructor(); 
 
-  const handleSelectInstructor = async (randomUser: any) => {
+  const handleSelectInstructor = async (randomUser: RandomUser) => {
     await createAndAddUser(randomUser, addInstructorCallback);
     setIsOpen(false);
   };
@@ -49,7 +55,7 @@ export function AddSuggestedInstructorDialog({
                 <Skeleton className="h-12 w-full" />
              </div>
           )}
-          {suggestions.map((user: any) => (
+          {suggestions.map((user: RandomUser) => (
             <div key={user.login.uuid} className="flex items-center justify-between p-2 rounded-lg border">
               <span className="text-sm">{user.name.first} {user.name.last} ({user.email})</span>
               <Button 
