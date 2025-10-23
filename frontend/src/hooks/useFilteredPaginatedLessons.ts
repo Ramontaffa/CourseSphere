@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { Lesson } from "@/types";
 import { api } from "@/lib/api";
 import { useClientPagination } from "@/hooks/useClientPagination";
+import toast from "react-hot-toast";
 
 export interface UseFilteredPaginatedLessonsOptions {
   courseId: string;
@@ -21,12 +22,7 @@ export function useFilteredPaginatedLessons({
   const [statusFilter, setStatusFilter] = useState(initialStatus);
 
   const apiUrl = `/lessons?course_id=${courseId}`;
-  const {
-    data: lessons,
-    error,
-    isLoading,
-    mutate,
-  } = useSWR<Lesson[]>(apiUrl);
+  const { data: lessons, error, isLoading, mutate } = useSWR<Lesson[]>(apiUrl);
 
   const filteredLessons = useMemo(() => {
     if (!lessons) return [];
@@ -51,8 +47,9 @@ export function useFilteredPaginatedLessons({
     try {
       await api.delete(`/lessons/${id}`);
       mutate();
+      toast.success("Aula excluída com sucesso");
     } catch (err) {
-      alert("Erro ao excluir aula!");
+      toast.error("Erro ao excluir aula!");
     }
   }
 
@@ -60,10 +57,9 @@ export function useFilteredPaginatedLessons({
     try {
       await api.patch(`/lessons/${id}`, data);
       mutate();
-      console.log("Lesson updated", id, data);
+      toast.success("Aula atualizada com sucesso!");
     } catch (err) {
-      console.error("Erro ao editar aula!", err);
-      alert("Erro ao editar aula!");
+      toast.error("Erro ao editar aula!");
     }
   }
 
