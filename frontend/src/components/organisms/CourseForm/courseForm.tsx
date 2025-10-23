@@ -7,9 +7,12 @@ import { useCreateCourse } from '@/hooks/useCreateCourse';
 import { InputField } from '@molecules/InputField/InputField';
 import { Button } from '@atoms/Button/button';
 import { TextAreaField } from '@molecules/TextAreaField/textAreaField';
+import ArrowBack from '@/components/atoms/ArrowBack/ArrowBack';
+import { useRouter } from 'next/navigation';
 
 export function CourseForm() {
   const { isCreating, createCourse } = useCreateCourse();
+  const router = useRouter();
 
   const {
     register,
@@ -35,13 +38,19 @@ export function CourseForm() {
 
   return (
     <div className="w-full max-w-5xl"> 
-      <div className="grid gap-2 text-center mb-6">
-        <h1 className="text-2xl font-bold">Criar Novo Curso</h1>
-        <p className="text-sm text-muted-foreground">
+      {/* Header */}
+      <div className="grid gap-2 text-start mb-6">
+        <div className='flex gap-2 items-center'>
+          <ArrowBack onClick={() => {router.back()}}/>
+          <h1 className="text-4xl font-bold">Criar Novo Curso</h1>
+        </div>
+
+        <p className="text-md text-muted-foreground">
           Preencha os detalhes abaixo para começar.
         </p>
       </div>
 
+      {/* form */}
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
         <InputField
           label="Nome do Curso"
