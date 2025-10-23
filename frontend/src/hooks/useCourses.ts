@@ -17,11 +17,11 @@ export function useCourses() {
   const courses = useMemo(() => {
     if (!allCourses || !user) return [];
 
-    const userIdAsString = String(user.id);
+    const userIdAsString = user.id;
 
     return allCourses.filter((course) => {
-      const isCreator = String(course.creator_id) === userIdAsString;
-      const isInstructor = Array.isArray(course.instructors) && course.instructors.map(String).includes(userIdAsString);
+      const isCreator = course.creator_id === userIdAsString;
+      const isInstructor = Array.isArray(course.instructors) && course.instructors.includes(userIdAsString);
 
       return isCreator || isInstructor;
     });
