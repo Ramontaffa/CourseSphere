@@ -9,7 +9,7 @@ interface AuthProfileProps {
 export function AuthProfile({ userName, onLogout }: AuthProfileProps) {
   return (
     <div className="flex items-center gap-4">
-      <p className="font-semibold text-white">{userName}</p>
+      <p className="font-semibold hidden sm:block text-white">{userName}</p>
       <Button
         variant="outline"
         onClick={onLogout}
