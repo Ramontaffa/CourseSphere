@@ -1,4 +1,4 @@
-import { CourseDetails } from "@organisms/CourseDetails/courseDetails";
+import { CourseDetails } from "@/components/organisms/Course/CourseDetails/courseDetails";
 
 export default function CourseDetailsPage({ params }: { params: { id: string } }) {
   

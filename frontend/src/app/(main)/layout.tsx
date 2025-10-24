@@ -1,4 +1,4 @@
-import { Navbar } from '@organisms/Navbar/Navbar';
+import { Navbar } from '@/components/organisms/ui/Navbar/Navbar';
 import React from 'react';
 
 export default function AppLayout({

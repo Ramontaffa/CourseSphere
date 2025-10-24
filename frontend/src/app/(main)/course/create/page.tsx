@@ -1,4 +1,4 @@
-import { CourseForm } from '@organisms/CourseForm/courseForm';
+import { CourseForm } from '@/components/organisms/Course/CourseForm/courseForm';
 
 import type { Metadata } from 'next';
 export const metadata: Metadata = {

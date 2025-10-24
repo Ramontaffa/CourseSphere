@@ -1,5 +1,5 @@
 import { Button } from "@atoms/Button/button";
-import { CourseList } from "@organisms/CourseList/CourseList";
+import { CourseList } from "@/components/organisms/Course/CourseList/CourseList";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 

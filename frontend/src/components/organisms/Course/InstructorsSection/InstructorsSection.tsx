@@ -1,7 +1,7 @@
 "use client";
 
-import { SectionHeader } from "@/components/organisms/CourseDatails/SectionHeader";
-import { DeleteDialog } from "@/components/organisms/DeleteDialog/DeleteDialog";
+import { SectionHeader } from "@/components/organisms/Course/CourseSections/SectionHeader";
+import { DeleteDialog } from "@/components/organisms/ui/DeleteDialog/DeleteDialog";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
 import { useInstructors } from "@/hooks/Querys/useInstructors";
 import { useCourseInstructors } from "@/hooks/Mutations/useCourseInstructors";

@@ -10,7 +10,7 @@ import {
   DialogTitle, 
   DialogTrigger 
 } from "@atoms/Dialog/dialog";
-import { LessonForm } from '@/components/organisms/LessonForm/LessonForm';
+import { LessonForm } from '@/components/organisms/Lesson/LessonForm/LessonForm';
 
 interface AddLessonDialogProps {
   courseId: string;
