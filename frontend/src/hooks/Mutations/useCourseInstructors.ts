@@ -1,6 +1,7 @@
 "use client";
 
 import { api } from "@/lib/api";
+import { Course } from "@/types";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useSWRConfig } from "swr";
@@ -20,9 +21,9 @@ export function useCourseInstructors(courseId: string) {
       try {
         await mutate(
           `/courses/${courseId}`,
-          (currentData: any) => {
-            if (!currentData) return { id: courseId, instructors: updatedList };
-            return { ...currentData, instructors: updatedList };
+          (currentData: Course | undefined) => {
+            if (!currentData) return { id: courseId, instructors: updatedList } as Course;
+            return { ...currentData, instructors: updatedList } as Course;
           },
           false
         );
