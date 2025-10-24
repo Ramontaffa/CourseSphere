@@ -13,6 +13,25 @@ Este README descreve o projeto, como instalar e rodar localmente, e fornece dica
 - Backend: json-server (mock REST API) usando o arquivo `backend/db.json`.
 - Persistência: `backend/db.json` contém dados iniciais (Users, Courses, Lessons).
 
+## Bibliotecas e tecnologias usadas 🧩
+
+- Frontend principais:
+  - Next.js (App Router) — framework React para aplicações server/client.
+  - React + TypeScript — base da aplicação.
+  - SWR — data fetching e cache.
+  - axios (via `frontend/src/lib/api.ts`) — cliente HTTP centralizado.
+  - React Hook Form + Zod — formulários e validação de schemas.
+  - Tailwind CSS — utilitários de estilo.
+  - Lucide React — ícones.
+  - react-hot-toast — notificações/feedbacks de UI.
+
+- Backend (mock):
+  - json-server — mock de API REST local utilizando `backend/db.json`.
+
+- Ferramentas de desenvolvimento:
+  - pnpm — gerenciador de pacotes
+  - ESLint — linting (configuração presente no frontend)
+
 Ports padrão
 - Frontend (Next dev): `http://localhost:3000`
 - Backend (json-server): `http://localhost:3001`
