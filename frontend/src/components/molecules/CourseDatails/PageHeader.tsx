@@ -34,7 +34,6 @@ export function PageHeader({ course, isCreator }: PageHeaderProps) {
                 id={course.id}
                 onDelete={async (id) => {
                   await deleteCourse(id);
-                  // navigate after deletion to avoid flicker — replace to keep nav history clean
                   router.replace('/');
                 }}
                 header={true}

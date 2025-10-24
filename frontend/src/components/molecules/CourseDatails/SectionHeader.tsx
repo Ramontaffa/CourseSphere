@@ -11,7 +11,7 @@ export type SectionHeaderProps = {
 
 export function SectionHeader({ title, showButton = true, children, className = "" }: SectionHeaderProps) {
   return (
-    <div className={`flex flex-wrap justify-between items-center mb-4 ${className}`}>
+    <div className={`flex flex-col sm:flex-row justify-between items-start sm:items-start mb-4 ${className}`}>
       <h2 className="text-2xl font-bold">{title}</h2>
       {showButton ? children : null}
     </div>
