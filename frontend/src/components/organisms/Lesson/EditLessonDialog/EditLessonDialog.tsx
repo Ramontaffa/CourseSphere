@@ -21,7 +21,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/atoms/Form/form";
-import { SelectInput } from "../../molecules/Form/SelectInput/SelectInput";
+import { SelectInput } from "@molecules/Form/SelectInput/SelectInput";
 import { Pencil } from "lucide-react";
 
 interface EditLessonDialogProps {
