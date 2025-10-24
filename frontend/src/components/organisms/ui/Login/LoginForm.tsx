@@ -49,7 +49,6 @@ export function LoginComponent() {
           type="email"
           placeholder="Usuário@email.com"
           icon={<User size={18} />}
-          className="loginInput"
         />
 
         <PasswordField
@@ -57,7 +56,6 @@ export function LoginComponent() {
           register={register("password")}
           error={errors.password}
           placeholder="******"
-          className="loginInput"
         />
 
         <div className="mt-4 flex flex-col gap-2">
