@@ -27,9 +27,9 @@ export function CourseCard({ course }: CourseCardProps) {
       className="group block w-full h-full transition-transform transform hover:scale-103 focus:scale-103"
       href={`/course/${course.id}`}
     >
-      <Card className="flex h-full flex-col cursor-pointer overflow-hidden transition-shadow duration-300 border-border/50 hover:shadow-md">
+      <Card className="flex flex-col cursor-pointer transition-shadow duration-300 border-border/50 hover:shadow-md">
         <CardHeader className="grow">
-          <h3 className="text-xl font-semibold text-main-blue line-clamp-2 group-hover:text-main-blue-hover group-focus:text-primary transition-colors duration-300">
+          <h3 className="text-xl font-semibold text-main-blue line-clamp-2 group-hover:text-main-blue-hover transition-colors duration-300">
             {course.name}
           </h3>
 
