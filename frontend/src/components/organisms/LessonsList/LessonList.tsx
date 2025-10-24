@@ -2,10 +2,10 @@
 
 import { Lesson } from "@/types";
 import { Input } from "@atoms/Input/input";
-import { SelectInput } from "@/components/molecules/SelectInput/SelectInput";
-import { LessonCard } from "@molecules/LessonCard/LessonCard";
+import { SelectInput } from "@/components/molecules/Form/SelectInput/SelectInput";
+import { LessonCard } from "@/components/molecules/Card/LessonCard/LessonCard";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
-import Pagination from "@/components/molecules/Pagination/Pagination";
+import Pagination from "@/components/molecules/ui/Pagination/Pagination";
 import { useAuth } from "@/context/AuthContext";
 import { useFilteredPaginatedLessons } from "@/hooks/Mutations/useFilteredPaginatedLessons";
 

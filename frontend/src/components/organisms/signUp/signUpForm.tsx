@@ -6,8 +6,8 @@ import { signUpSchema, SignUpFormData } from "@/lib/schemas/SignUpSchema";
 import { Button } from "@/components/atoms/Button/button";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
-import { InputField } from "@molecules/InputField/InputField";
-import { PasswordField } from "@molecules/PasswordField/PasswordField";
+import { InputField } from "@/components/molecules/Form/InputField/InputField";
+import { PasswordField } from "@/components/molecules/Form/PasswordField/PasswordField";
 import { useAuth } from "@/context/AuthContext";
 
 export function SignUpComponent() {

@@ -11,8 +11,8 @@ import { Course } from "@/types";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { courseSchema, CourseFormData } from "@/lib/schemas/CourseSchema";
-import { InputField } from "@molecules/InputField/InputField";
-import { TextAreaField } from "@molecules/TextAreaField/textAreaField";
+import { InputField } from "@/components/molecules/Form/InputField/InputField";
+import { TextAreaField } from "@/components/molecules/Form/TextAreaField/textAreaField";
 import { Pencil } from "lucide-react";
 
 interface EditCourseDialogProps {

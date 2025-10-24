@@ -1,7 +1,7 @@
 'use client';
 
 import { useAuth } from "@/context/AuthContext";
-import { AuthProfile } from "@molecules/AuthProfile/AuthProfile";
+import { AuthProfile } from "@/components/molecules/ui/AuthProfile/AuthProfile";
 import { useRouter } from "next/navigation";
 
 export function Navbar() {

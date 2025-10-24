@@ -7,8 +7,8 @@ import { useAuth } from "@/context/AuthContext";
 import { Button } from "@atoms/Button/button";
 import { User } from "lucide-react";
 import Link from "next/link";
-import { InputField } from "@molecules/InputField/InputField";
-import { PasswordField } from "@molecules/PasswordField/PasswordField";
+import { InputField } from "@/components/molecules/Form/InputField/InputField";
+import { PasswordField } from "@/components/molecules/Form/PasswordField/PasswordField";
 
 export function LoginComponent() {
   const { login, isLoading } = useAuth();

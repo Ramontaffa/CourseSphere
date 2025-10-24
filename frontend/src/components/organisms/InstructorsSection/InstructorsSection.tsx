@@ -1,11 +1,11 @@
 "use client";
 
-import { SectionHeader } from "@molecules/CourseDatails/SectionHeader";
-import { DeleteDialog } from "@molecules/DeleteDialog/DeleteDialog";
+import { SectionHeader } from "@/components/organisms/CourseDatails/SectionHeader";
+import { DeleteDialog } from "@/components/organisms/DeleteDialog/DeleteDialog";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
 import { useInstructors } from "@/hooks/Querys/useInstructors";
 import { useCourseInstructors } from "@/hooks/Mutations/useCourseInstructors";
-import { AddSuggestedInstructorDialog } from "@molecules/SuggestedInstructor/SuggestedInstructor";
+import { AddSuggestedInstructorDialog } from "@/components/molecules/Card/SuggestedInstructor/SuggestedInstructor";
 import { User } from "@/types";
 
 interface InstructorsSectionProps {

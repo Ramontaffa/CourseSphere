@@ -4,8 +4,8 @@ import Image from "next/image";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Lesson } from "@/types";
-import { EditLessonDialog } from "@molecules/EditLessonDialog/EditLessonDialog";
-import { DeleteDialog } from "@molecules/DeleteDialog/DeleteDialog";
+import { EditLessonDialog } from "@/components/organisms/EditLessonDialog/EditLessonDialog";
+import { DeleteDialog } from "@/components/organisms/DeleteDialog/DeleteDialog";
 import { DummyImage } from "@/assets";
 
 type LessonCardProps = {

@@ -1,11 +1,11 @@
 "use client";
 
-import { EditCourseDialog } from "@molecules/EditCourseDialog/EditCourseDialog";
+import { EditCourseDialog } from "@/components/organisms/EditCourseDialog/EditCourseDialog";
 import { useCourseMutations } from '@/hooks/Mutations/useCourseMutations';
 import { useRouter } from 'next/navigation';
 import { Course } from "@/types";
-import PageTitle from "../PageTitle/PageTitle";
-import { DeleteDialog } from "@molecules/DeleteDialog/DeleteDialog";
+import PageTitle from "../../molecules/ui/PageTitle/PageTitle";
+import { DeleteDialog } from "@/components/organisms/DeleteDialog/DeleteDialog";
 
 export type PageHeaderProps = {
   course: Course;

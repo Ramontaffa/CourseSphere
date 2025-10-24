@@ -8,8 +8,8 @@ import {
 } from "@/lib/schemas/LessonSchema";
 import { useCreateLesson } from "@/hooks/Mutations/useCreateLesson";
 import { toast } from "react-hot-toast";
-import { InputField } from "@molecules/InputField/InputField";
-import { SelectInput } from "@molecules/SelectInput/SelectInput";
+import { InputField } from "@/components/molecules/Form/InputField/InputField";
+import { SelectInput } from "@/components/molecules/Form/SelectInput/SelectInput";
 import { Button } from "@atoms/Button/button";
 import { FormField, FormItem, FormLabel, FormMessage } from "@atoms/Form/form";
 

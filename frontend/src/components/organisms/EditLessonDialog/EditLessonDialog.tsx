@@ -14,14 +14,14 @@ import {
   lessonSchema,
   LessonFormData,
 } from "@/lib/schemas/LessonSchema";
-import { InputField } from "@molecules/InputField/InputField";
+import { InputField } from "@/components/molecules/Form/InputField/InputField";
 import {
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/atoms/Form/form";
-import { SelectInput } from "../SelectInput/SelectInput";
+import { SelectInput } from "../../molecules/Form/SelectInput/SelectInput";
 import { Pencil } from "lucide-react";
 
 interface EditLessonDialogProps {

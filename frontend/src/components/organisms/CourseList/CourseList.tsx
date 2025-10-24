@@ -1,9 +1,9 @@
 "use client";
 
 import { useCourses } from "@/hooks/Querys/useCourses";
-import { CourseCard } from "@/components/molecules/CourseCard/CourseCard";
+import { CourseCard } from "@/components/molecules/Card/CourseCard/CourseCard";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
-import Pagination from "@/components/molecules/Pagination/Pagination";
+import Pagination from "@/components/molecules/ui/Pagination/Pagination";
 import { useClientPagination } from "@/hooks/Mutations/useClientPagination";
 
 export function CourseList() {

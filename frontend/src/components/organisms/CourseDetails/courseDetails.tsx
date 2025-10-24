@@ -3,12 +3,12 @@
 import { useCourse } from "@/hooks/Querys/useGetCourseId";
 import { useAuth } from "@/context/AuthContext";
 import { Skeleton } from "@atoms/Skeleton/skeleton";
-import { PageHeader } from "@molecules/CourseDatails/PageHeader";
-import { SectionHeader } from "@molecules/CourseDatails/SectionHeader";
+import { PageHeader } from "@/components/organisms/CourseDatails/PageHeader";
+import { SectionHeader } from "@/components/organisms/CourseDatails/SectionHeader";
 import { useMemo } from "react";
 import { LessonList } from "@organisms/LessonsList/LessonList";
-import { InstructorsSection } from "@molecules/InstructorsSection/InstructorsSection";
-import { AddLessonDialog } from "@molecules/AddLessonDialog/AddLessonDialog";
+import { InstructorsSection } from "@/components/organisms/InstructorsSection/InstructorsSection";
+import { AddLessonDialog } from "@/components/organisms/AddLessonDialog/AddLessonDialog";
 
 export function CourseDetails({ courseId }: { courseId: string }) {
   const { user, isHydrating } = useAuth();
