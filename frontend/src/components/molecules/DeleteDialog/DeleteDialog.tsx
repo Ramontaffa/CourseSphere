@@ -27,7 +27,7 @@ export function DeleteDialog({ id, onDelete, header }: DeleteDialogProps) {
     }
   };
 
-  const headerStyles = header ? "text-white bg-red-500 hover:bg-red-600" : "text-red-500 hover:bg-zinc-100 hover:text-red-700";
+  const headerStyles = header ? "text-red-500 bg-white hover:bg-red-500 hover:text-white border-red-500" : "border-none text-red-500 hover:bg-zinc-100 hover:text-red-700";
 
   // Prevent closing the dialog while deletion is in progress
   const handleOpenChange = (next: boolean) => {
@@ -38,7 +38,7 @@ export function DeleteDialog({ id, onDelete, header }: DeleteDialogProps) {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button className={`transition border-none shadow-none ${headerStyles}`} variant="outline">
+        <Button className={`transition shadow-none ${headerStyles}`} variant="outline">
           <Trash size={16} /> {header ? "Excluir" : ""}
         </Button>
       </DialogTrigger>

@@ -60,7 +60,7 @@ export function EditCourseDialog({ course, onEdit }: EditCourseDialogProps) {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
-          className="text-white bg-main-orange hover:bg-main-orange-hover hover:text-white transition border-none shadow-none"
+          className="text-main-orange bg-white hover:bg-main-orange hover:text-white transition border-main-orange shadow-none"
           variant="outline"
         >
           <Pencil size={16} /> Editar
