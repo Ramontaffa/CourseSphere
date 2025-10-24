@@ -51,7 +51,7 @@ export function LessonCard({
   return (
     <div className="flex flex-col sm:flex-row gap-4 overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl p-4 hover:shadow-sm hover:scale-101 transition-all duration-200 w-full">
       {/* Miniatura */}
-      <div className="relative w-full sm:w-48 flex-shrink-0 h-40 sm:h-28">
+      <div className="relative w-full sm:w-48 shrink-0 h-40 sm:h-28">
         {thumbnail ? (
           <Image
             src={thumbnail}

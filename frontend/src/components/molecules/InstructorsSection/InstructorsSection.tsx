@@ -70,10 +70,10 @@ export function InstructorsSection({
               if (!user) return null;
 
               return (
-                <li key={user.id} className="flex justify-between items-center">
+                <li key={user.id} className="flex justify-between items-center border-t first:border-t-0 pt-2 first:pt-0 overflow-auto gap-2">
                   <span>{getUserName(user)} ({user.email})</span>
                   {isCreator && (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center">
                       <DeleteDialog
                         id={String(user.id)}
                         onDelete={() => removeInstructor(String(user.id), instructorIds)}
