@@ -42,7 +42,6 @@ export function LessonForm({ courseId, onClose }: LessonFormProps) {
     try {
       await createLesson(data);
       onClose();
-      toast.success("Aula criada com sucesso");
     } catch (error) {
       console.error("Erro ao criar aula:", error);
       toast.error("Erro ao criar aula");
