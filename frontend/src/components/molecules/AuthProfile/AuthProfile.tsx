@@ -13,7 +13,7 @@ export function AuthProfile({ userName, onLogout }: AuthProfileProps) {
       <Button
         variant="outline"
         onClick={onLogout}
-        className="text-main-dark-blue font-semibold border-none"
+        className="text-white bg-transparent hover:bg-white hover:text-main-dark-blue font-semibold border-white"
       >
         <LogOut />
         Sair

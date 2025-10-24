@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@atoms/Dialog/dialog";
 import { Button } from '@atoms/Button/button';
 import { Skeleton } from '@atoms/Skeleton/skeleton';
-import { LucidePlusCircle } from 'lucide-react';
+import { Loader2, PlusCircle } from 'lucide-react';
 import { useSuggestedInstructors } from '@/hooks/Querys/useSuggestedInstructors';
 import { useCreateInstructor } from '@/hooks/Mutations/useCreateInstructor';
 
@@ -40,13 +40,13 @@ export function AddSuggestedInstructorDialog({
           variant="outline"
           className="text-white bg-main-dark-green hover:bg-main-dark-green-hover hover:text-off-white"
         >
-          <LucidePlusCircle className="mr-2 h-4 w-4" />
-          Adicionar Novo Instrutor (Sugestão)
+          <PlusCircle className="h-4 w-4" />
+            Instrutores Sugeridos
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Sugerir Novos Instrutores</DialogTitle>
+          <DialogTitle>Adicionar Instrutor(a) Sugerido</DialogTitle>
         </DialogHeader>
         <div className="space-y-2 max-h-60 overflow-y-auto py-4">
           {isLoadingSuggestions && (
@@ -62,8 +62,17 @@ export function AddSuggestedInstructorDialog({
                 size="sm"
                 onClick={() => handleSelectInstructor(user)}
                 disabled={isCreatingUser || isUpdatingCourse} 
+                className='bg-main-dark-green text-white hover:bg-main-dark-green-hover hover:text-off-white'
               >
-                {isCreatingUser ? 'Salvando...' : 'Adicionar'}
+                {isCreatingUser ? (
+                  <span className="flex items-center">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  </span>
+                ) : (
+                  <span className="flex items-center">
+                    <PlusCircle className="h-4 w-4" />
+                  </span>
+                )}
               </Button>
             </div>
           ))}
