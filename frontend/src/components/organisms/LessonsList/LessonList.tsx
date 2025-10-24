@@ -51,6 +51,7 @@ export function LessonList({ courseId }: { courseId: string }) {
             { value: "archived", label: "Arquivadas" },
           ]}
           disabled={isLoading}
+          className="w-full max-w-[30%] lg:max-w-[40%]"
         />
       </div>
 

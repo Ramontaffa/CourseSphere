@@ -34,7 +34,7 @@ export function SelectInput({
   className = "",
 }: SelectInputProps) {
   return (
-    <div className={`w-full max-w-md ${className}`}>
+    <div className={`${className}`}>
       {label && (
         <label className="block text-sm font-medium text-main-dark-blue mb-1">
           {label}
